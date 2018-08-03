@@ -285,12 +285,11 @@
             authorization: function() {
 //              loginOptions = {scope: "profile payments:widget payments:shipping_address", popup: true};
               loginOptions = {scope: "profile payments:widget payments:shipping_address", popup: false};
-              authRequest = amazon.Login.authorize (loginOptions, "shop-confirmation.html");
+              authRequest = amazon.Login.authorize (loginOptions, "shop-confirmation.html?utm_nooverride=1");
             },
             onError: function(error) {
-                console.log('test');
-                //document.getElementById("errorCode").innerHTML = error.getErrorCode();
-                //document.getElementById("errorMessage").innerHTML = error.getErrorMessage();
+                console.log(error.getErrorCode());
+                console.log(error.getErrorMessage());
             }
           });
       }
